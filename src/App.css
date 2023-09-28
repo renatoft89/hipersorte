@@ -1,38 +1,38 @@
-.App {
-  text-align: center;
+/* Reset CSS Básico */
+
+/* Remova a margem e o preenchimento padrão */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Defina a fonte base para evitar variações */
+body {
+  font-family: Arial, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Remova a decoração de links padrão */
+a {
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Defina uma base de tamanho de fonte */
+html {
+  font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Defina uma regra para elementos de formulário */
+input, button {
+  font-family: inherit;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Adicione uma regra para as imagens não quebrarem o layout */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Defina a caixa de modelo para ser o padrão */
+* {
+  box-sizing: border-box;
 }

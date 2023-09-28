@@ -1,0 +1,41 @@
+/* src/components/style/Header.css */
+
+.header-container {
+  background-color: #1e88e5; /* Fundo azul */
+  color: white; /* Letras brancas */
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.default-link,
+.active-link {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.default-link:hover,
+.active-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Sombra */
+}
+
+.disabled-link {
+  display: none; /* Oculta link na página Home */
+}
+
+@media (max-width: 768px) {
+  .header-nav {
+    flex-direction: column; /* Coloca os links em uma coluna para dispositivos móveis */
+  }
+
+  .default-link,
+  .active-link {
+    padding: 10px 0; /* Reduz o espaçamento vertical para dispositivos móveis */
+  }
+}
