@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/hipersorte/static/css/main.a3d2f320.css",
+    "main.js": "/hipersorte/static/js/main.b45d2911.js",
+    "static/js/787.dbcebefe.chunk.js": "/hipersorte/static/js/787.dbcebefe.chunk.js",
+    "index.html": "/hipersorte/index.html",
+    "main.a3d2f320.css.map": "/hipersorte/static/css/main.a3d2f320.css.map",
+    "main.b45d2911.js.map": "/hipersorte/static/js/main.b45d2911.js.map",
+    "787.dbcebefe.chunk.js.map": "/hipersorte/static/js/787.dbcebefe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a3d2f320.css",
+    "static/js/main.b45d2911.js"
+  ]
+}
