@@ -1,0 +1,26 @@
+# Ignorar diretórios de dependências
+node_modules/
+
+# Ignorar arquivos de log
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Ignorar arquivos temporários
+*.log
+*.swp
+
+# Ignorar diretórios de compilação e arquivos gerados
+dist/
+out/
+build/
+*.dist/
+*.egg-info/
+*.log
+
+# Ignorar arquivos de configuração local
+.env
+
+# Ignorar arquivos de configuração de IDEs
+.vscode/
+.idea/
