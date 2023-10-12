@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer');
 const result = async () => {
   try {
     const browser = await puppeteer.launch({
+      headless:false,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 
@@ -11,9 +12,13 @@ const result = async () => {
 
     const lotoResults = await page.evaluate(() => {
       const mega = Array.from(document.querySelectorAll('ul.resultado-loteria.mega-sena li')).map(li => li.innerText);
-      console.log(mega);
+      const lotofacil = Array.from(document.querySelectorAll('ul.simple-container.lista-dezenas.lotofacil li.ng-binding.dezena.ng-scope')).map(li => li.innerText);
+      const quina = Array.from(document.querySelectorAll('ul.simple-container.lista-dezenas.quina li.ng-binding.dezena.ng-scope')).map(li => li.innerText);
+      
       return {
         mega,
+        lotofacil,
+        quina
       };
     });
 
