@@ -1,26 +1,29 @@
 const puppeteer = require('puppeteer');
 
-const tabela = async (serie) => { 
+const result = async () => {
+  try {
     const browser = await puppeteer.launch({
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-      ],
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
-    
-    const page = await browser.newPage(serie);
-    await page.goto(`https://www.cbf.com.br/futebol-brasileiro/competicoes/campeonato-brasileiro-serie-${ serie }`);
-    // await page.goto(`https://www.gazetaesportiva.com/campeonatos/brasileiro-serie-${serie}/`);
 
-    const tabelaSerieA = await page.evaluate(() => {
-      const mega = Array.from(document.querySelectorAll('table tr td span.hidden-xs', table => table.textContent)).map(club => club.innerText); 
-      
+    const page = await browser.newPage();
+    await page.goto('https://loterias.caixa.gov.br/Paginas/default.aspx');
+
+    const lotoResults = await page.evaluate(() => {
+      const mega = Array.from(document.querySelectorAll('ul.resultado-loteria.mega-sena li')).map(li => li.innerText);
+      console.log(mega);
       return {
         mega,
-        }
-    })
-    await browser.close();
-    return mega;
-  };
+      };
+    });
 
-module.exports = tabela;
+    await browser.close();
+    console.log(lotoResults);
+    return lotoResults;
+  } catch (error) {
+    console.error('Erro ao buscar os resultados da Mega-Sena:', error);
+    return { error: 'Erro ao buscar os resultados da Mega-Sena' };
+  }
+};
+
+module.exports = result;
