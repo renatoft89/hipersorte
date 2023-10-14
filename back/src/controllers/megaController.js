@@ -5,7 +5,6 @@ const getResultMega = async (req, res, next) => {
     const result = await serviceResultMega();
     return res.status(200).json(result);
   } catch (error) {
-    // Lida com erros aqui
     next(error);
   }
 };

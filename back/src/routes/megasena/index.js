@@ -3,7 +3,7 @@ const megaController = require('../../controllers/megaController');
 
 const megaRouter = express.Router();
 
-megaRouter.get('/mega', megaController.getResultMega);
+megaRouter.get('/megasena', megaController.getResultMega);
 
 
 module.exports = megaRouter;
