@@ -1,0 +1,11 @@
+PORT=3001
+
+MYSQL_HOST=renatoft89
+MYSQL_USER=root
+MYSQL_PASSWORD=senha-mysql
+MYSQL_DATABASE=loto_results
+
+
+# docker run --name container-db -e MYSQL_ROOT_PASSWORD=22052015 -e MYSQL_USER=renatoft89 -e MYSQL_PASSWORD=senha-mysql -e TZ=America/Sao_Paulo -p 3306:3306 -d mysql:latest
+# GRANT UPDATE ON loto_results.mega TO 'renatoft89'@'%';
+# docker run --name loto-mysql -e MYSQL_ROOT_PASSWORD=22052015 -e MYSQL_USER=renatoft89 -e MYSQL_PASSWORD=senha-mysql -e MYSQL_DATABASE=loto_results -e TZ=America/Sao_Paulo -p 3306:3306 -d mysql:latest

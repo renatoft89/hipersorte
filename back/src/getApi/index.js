@@ -23,7 +23,6 @@ const result = async () => {
     });
 
     await browser.close();
-    console.log(lotoResults);
     return lotoResults;
   } catch (error) {
     console.error('Erro ao buscar os resultados da Mega-Sena:', error);
