@@ -20,7 +20,8 @@ const Quina = () => {
 
   return (
     <><Header />
-    <div className="quina-container">
+    <div className="quina">
+      <div className="quina-container">
       <h2>Quina</h2>
       <div className="number-input">
         <label>Quantidade de Números (5 a 15):</label>
@@ -40,6 +41,7 @@ const Quina = () => {
             {num}
           </div>
         ))}
+      </div>
       </div>
     </div></>
   );
