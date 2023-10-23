@@ -1,9 +1,15 @@
 .lotofacil-container {
   text-align: center;
   background-color: #f0f0f0;
-  padding: 20px;
+  padding: 65px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loto {
+  margin: 0 auto;
+  max-width: 600px;
+  margin-top: 60px;
 }
 
 .lotofacil-header {
@@ -62,3 +68,37 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 480px) {
+  .lotofacil-container {
+    padding: 10px;
+  }
+
+  .loto {
+    margin-top: 10px;
+  }
+
+  .lotofacil-header {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .number-input {
+    margin-bottom: 8px;
+  }
+
+  .number-input label {
+    font-size: 12px;
+  }
+
+  .generate-button-loto {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .number-circle-loto {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    margin: 2px;
+  }
+}

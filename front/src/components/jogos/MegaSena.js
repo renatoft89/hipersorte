@@ -22,6 +22,7 @@ const MegaSena = () => {
 
   return (
     <><Header />
+    <div className="mega">
     <div className="mega-sena-container">
       <h2 className="mega-sena-header">Gerador da Mega Sena</h2>
       <label className="number-input">
@@ -45,6 +46,7 @@ const MegaSena = () => {
             </li>
           ))}
         </ul>
+      </div>
       </div>
     </div></>
   );

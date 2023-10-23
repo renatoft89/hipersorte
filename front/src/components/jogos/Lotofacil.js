@@ -21,7 +21,9 @@ const Lotofacil = () => {
   };
 
   return (
-    <><Header /><div className="lotofacil-container">
+    <><Header />
+    <div className="loto">
+    <div className="lotofacil-container">
       <h2 className="lotofacil-header">Gerador da Lotofácil</h2>
       <label className="number-input">
         Selecione quantos números deseja gerar:
@@ -44,6 +46,7 @@ const Lotofacil = () => {
             </li>
           ))}
         </ul>
+      </div>
       </div>
     </div></>
   );

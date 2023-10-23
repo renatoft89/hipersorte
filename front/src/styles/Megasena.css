@@ -4,9 +4,15 @@
 .mega-sena-container {
   text-align: center;
   background-color: #f0f0f0;
-  padding: 20px;
+  padding: 60px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mega {
+  margin: 0 auto;
+  max-width: 600px;
+  margin-top: 60px;
 }
 
 /* Estilização do título */
@@ -41,6 +47,7 @@
 /* Estilização do botão de geração */
 .generate-button-mega {
   background-color: #209869;
+  margin-left: 10px;
   color: white;
   border: none;
   padding: 10px 20px;
