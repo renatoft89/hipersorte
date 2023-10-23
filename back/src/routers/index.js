@@ -4,6 +4,6 @@ const router = express.Router();
 
 const megaRouter = require('./megasena');
 
-router.use('/', megaRouter);
+router.use('/mega', megaRouter);
 
 module.exports = router;

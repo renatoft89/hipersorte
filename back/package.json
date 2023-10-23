@@ -2,7 +2,7 @@
   "name": "back",
   "version": "1.0.0",
   "description": "api resultados da loteria",
-  "main": "src/server.js",
+  "main": "./src/api/server.js",
   "scripts": {
     "start": "node .",
     "dev": "nodemon .",
@@ -14,9 +14,13 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "mysql2": "^2.3.3",
     "nodemon": "^3.0.1",
     "puppeteer": "^15.5.0",
     "puppeteer-core": "^15.5.0",
-    "mysql2": "^2.3.3"
+    "sequelize": "6.3.4"
+  },
+  "devDependencies": {
+    "sequelize-cli": "6.2.0"
   }
 }
