@@ -1,14 +1,30 @@
-const { User } = require('../database/models/user.model');
+const User = require('../database/models/user.model');
+const { Op } = require('sequelize');
+
 
 const createUser = async ({ name, email, password, role }) => {
-  const emailExists = await User.findOne({ where: { email } });
-  const nameExists = await User.findOne({ where: { name } });
+  try {
+    // Verificar se o email ou nome já existem
+    const existingUser = await User.findOne({
+      where: {
+        [Op.or]: [
+          { email },
+          { name },
+        ],
+      },
+    });
 
-  if (emailExists || nameExists) return false;
-  
-  const newUser = await User.create({ name, email, password, role });
+    if (existingUser) {
+      return false;
+    }
 
-  return newUser;
+    // Criar um novo usuário
+    await User.create({ name, email, password, role });
+
+  } catch (error) {
+    throw error; // Ou trate o erro de acordo com suas necessidades
+  }
 };
+
 
 module.exports = { createUser };

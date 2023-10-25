@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/config');
-const Bets = require('./bet.model'); // Importe o modelo Bet
+const sequelize = require('../config/database'); // Importa as configurações do Sequelize
 
 const User = sequelize.define('User', {
   name: {
@@ -11,6 +10,9 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
+    validate: {
+      isEmail: true,
+    },
   },
   password: {
     type: DataTypes.STRING,
@@ -18,11 +20,15 @@ const User = sequelize.define('User', {
   },
   role: {
     type: DataTypes.STRING,
-    allowNull: false,
   },
+}, {
+  modelName: 'User',
+  tableName: 'users',
 });
 
-// Defina o relacionamento: Um usuário tem muitas apostas
-User.hasMany(Bets, { foreignKey: 'user_id' });
+User.associate = function(models) {
+  // Defina o relacionamento: Um usuário tem muitas apostas
+  User.hasMany(models.Bets, { foreignKey: 'user_id' });
+};
 
 module.exports = User;
