@@ -9,10 +9,10 @@ const createUserController = async (req, res, next) => {
   console.log(result);
 
   if (!result) {
-    return res.status(409).json({ message: 'user or name exists in database' });
+    return res.status(409).json({ message: 'User or name exists in database' });
   }
 
-  return res.status(201).json({ message: 'User created' });
+  return res.status(201).json({ message: 'User created successfully' });
 };
 
 module.exports = { createUserController };
