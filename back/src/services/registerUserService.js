@@ -20,6 +20,7 @@ const createUser = async ({ name, email, password, role }) => {
 
     // Criar um novo usuário
     await User.create({ name, email, password, role });
+    return true;
 
   } catch (error) {
     throw error; // Ou trate o erro de acordo com suas necessidades

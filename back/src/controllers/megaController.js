@@ -1,4 +1,4 @@
-const serviceResultMega = require("../services/serviceMega");
+const { serviceResultMega } = require("../services/serviceMega");
 
 const getResultMega = async (req, res, next) => {
   try {

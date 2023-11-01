@@ -23,7 +23,7 @@ const User = sequelize.define('User', {
   },
 }, {
   modelName: 'User',
-  tableName: 'users',
+  tableName: 'Users',
 });
 
 User.associate = function(models) {

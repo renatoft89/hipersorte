@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-const result = async () => {
+const resultMega = async () => {
   try {
     const browser = await puppeteer.launch({
       headless:false,
@@ -30,4 +30,4 @@ const result = async () => {
   }
 };
 
-module.exports = result;
+module.exports = resultMega;
