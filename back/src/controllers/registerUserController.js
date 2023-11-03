@@ -6,13 +6,13 @@ const createUserController = async (req, res, next) => {
 
   const result = await createUser({ name, email, password, role });
 
-  console.log(result);
+  // console.log(result);
 
   if (!result) {
-    return res.status(409).json({ message: 'User or name exists in database' });
+    return res.status(409).json({ message: 'Usuario já está cadastrado' });
   }
 
-  return res.status(201).json({ message: 'User created successfully' });
+  return res.status(201).json({ message: 'Usuário criado com sucesso' });
 };
 
 module.exports = { createUserController };

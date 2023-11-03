@@ -7,7 +7,8 @@ const sequelize = new Sequelize(
   process.env.MYSQL_PASSWORD, 
   {
     host: process.env.MYSQL_HOST,
-    dialect: 'mysql' // Defina o dialeto diretamente como uma string
+    dialect: 'mysql', // Defina o dialeto diretamente como uma string
+    logging: false, // Isso desativa a saída de log do Sequelize
   }
 );
 
