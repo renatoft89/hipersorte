@@ -1,22 +1,26 @@
-const Bet = require('../database/models/bet.model');
+const Bets = require('../database/models/bet.model');
 const resultMega = require('../getApi/index'); 
 
 const serviceResultMega = async () => {
-    try {
-      const resultados = await resultMega();
+  try {
+    const resultados = await resultMega();
+   
+    
+    const numbersString = JSON.stringify(resultados.mega);
+    
+    Bets.update({ numbers: numbersString }, {
+      where: {
+        game_type: 'mega'
+      }
+    });
 
-      
-      await Bet.update(
-        { result: resultados },
-        { where: { game_type: 'Mega-Sena' } },
-      );
-      return resultados;
-
-    } catch (error) {
-      throw new Error('Erro interno do servidor');
-    }
-  };
+  return resultados;
   
-  module.exports = {
-    serviceResultMega,
-  };
+  } catch (error) {
+    throw new Error('Erro interno do servidor');
+  }
+};
+
+module.exports = {
+  serviceResultMega,
+};
