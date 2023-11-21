@@ -23,10 +23,10 @@ const updateUserController = async (req, res, next) => {
   const result = await updatedUser({ name, email, password, role, id });
 
   if (!result) {
-    return res.status(409).json({ message: 'Usuario não encontrado' });
+    return res.status(404).json({ message: 'Usuario não encontrado' });
   }
 
-  return res.status(201).json({ message: 'Usuário atualizado com sucesso' });
+  return res.status(200).json({ message: 'Usuário atualizado com sucesso' });
 }
 
 module.exports = { createUserController, updateUserController };
