@@ -27,5 +27,36 @@ const createUser = async ({ name, email, password, role }) => {
   }
 };
 
+const updatedUser = async ({ name, email, password, role, id }) => {
+  console.log({'TESTE': id});
+  try {
+    // Verificar se o email ou nome já existem
+    const existingUser = await User.findOne({
+      where: {
+        [Op.or]: [
+          { id },
+        ],
+      },
+    });
+    console.log({'TESTE': existingUser});
 
-module.exports = { createUser };
+    if (!existingUser) {
+      return false;
+    }
+    // Atualizar um usuário
+
+   const userUpdate =  await User.update({ name, email, password, role, updatedAt: new Date(), }, {
+      where: {
+        id
+      }
+    });
+
+    return userUpdate;
+
+  } catch (error) {
+    throw error; // Ou trate o erro de acordo com suas necessidades
+  }
+};
+
+
+module.exports = { createUser, updatedUser };

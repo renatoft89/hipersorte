@@ -1,4 +1,4 @@
-const { createUser } = require("../services/registerUserService");
+const { createUser, updatedUser } = require("../services/registerUserService");
 
 const createUserController = async (req, res, next) => {
   const { name, email, password, role } = req.body;
@@ -15,4 +15,18 @@ const createUserController = async (req, res, next) => {
   return res.status(201).json({ message: 'Usuário criado com sucesso' });
 };
 
-module.exports = { createUserController };
+const updateUserController = async (req, res, next) => {
+  const { name, email, password, role } = req.body;
+
+  const { id } = req.params;
+
+  const result = await updatedUser({ name, email, password, role, id });
+
+  if (!result) {
+    return res.status(409).json({ message: 'Usuario não encontrado' });
+  }
+
+  return res.status(201).json({ message: 'Usuário atualizado com sucesso' });
+}
+
+module.exports = { createUserController, updateUserController };
