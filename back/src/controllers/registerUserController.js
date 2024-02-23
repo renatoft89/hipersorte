@@ -1,10 +1,12 @@
 const { createUser, updatedUser } = require("../services/registerUserService");
+const hashPassword = require("../utils/hashMd5Password");
 
 const createUserController = async (req, res, next) => {
   const { name, email, password, role } = req.body;
 
+  const hash = hashPassword(password);
 
-  const result = await createUser({ name, email, password, role });
+  const result = await createUser({ name, email, hash, role });
 
   // console.log(result);
 
@@ -18,9 +20,11 @@ const createUserController = async (req, res, next) => {
 const updateUserController = async (req, res, next) => {
   const { name, email, password, role } = req.body;
 
+  const hash = hashPassword(password);
+
   const { id } = req.params;
 
-  const result = await updatedUser({ name, email, password, role, id });
+  const result = await updatedUser({ name, email, password: hash, role, id });
 
   if (!result) {
     return res.status(404).json({ message: 'Usuario não encontrado' });

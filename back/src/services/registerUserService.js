@@ -2,7 +2,7 @@ const User = require('../database/models/user.model');
 const { Op } = require('sequelize');
 
 
-const createUser = async ({ name, email, password, role }) => {
+const createUser = async ({ name, email, hash, role }) => {
   try {
     // Verificar se o email ou nome já existem
     const existingUser = await User.findOne({
@@ -19,7 +19,7 @@ const createUser = async ({ name, email, password, role }) => {
     }
 
     // Criar um novo usuário
-    await User.create({ name, email, password, role });
+    await User.create({ name, email, password: hash, role });
     return true;
 
   } catch (error) {
