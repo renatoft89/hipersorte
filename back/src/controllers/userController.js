@@ -1,7 +1,7 @@
-const { createUser, updatedUser } = require("../services/registerUserService");
+const { createUser, updateUser } = require("../services/userService");
 const hashPassword = require("../utils/hashMd5Password");
 
-const createUserController = async (req, res, next) => {
+const createUsers = async (req, res, next) => {
   const { name, email, password, role } = req.body;
 
   const hash = hashPassword(password);
@@ -17,15 +17,17 @@ const createUserController = async (req, res, next) => {
   return res.status(201).json({ message: 'Usuário criado com sucesso' });
 };
 
-const updateUserController = async (req, res, next) => {
+const updateUsers = async (req, res, next) => {
   const { name, email, password, role } = req.body;
+  console.log(name, email, password, role);
 
   const hash = hashPassword(password);
 
   const { id } = req.params;
+  console.log({ id });
 
-  const result = await updatedUser({ name, email, password: hash, role, id });
-
+  const result = await updateUser({ name, email, password: hash, role, id });
+  console.log({ teste: id });
   if (!result) {
     return res.status(404).json({ message: 'Usuario não encontrado' });
   }
@@ -33,4 +35,4 @@ const updateUserController = async (req, res, next) => {
   return res.status(200).json({ message: 'Usuário atualizado com sucesso' });
 }
 
-module.exports = { createUserController, updateUserController };
+module.exports = { createUsers, updateUsers };

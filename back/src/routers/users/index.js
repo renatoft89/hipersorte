@@ -1,13 +1,13 @@
 const express = require('express');
-const { createUserController, updateUserController} = require('../../controllers/registerUserController');
+const { createUsers, updateUsers} = require('../../controllers/userController');
 const { validateUserData } = require('../../middlewares/user.middleware');
 
 const createUserRouter = express.Router();
 const updateUserRouter = express.Router();
 
 
-createUserRouter.post('/user',validateUserData, createUserController)
-updateUserRouter.put('/user/:id',validateUserData, updateUserController);
+createUserRouter.post('/user',validateUserData, createUsers)
+updateUserRouter.put('/user/:id',validateUserData, updateUsers);
 
 
 module.exports = { createUserRouter, updateUserRouter } ;

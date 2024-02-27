@@ -1,27 +1,27 @@
 {
-  "name": "back",
+  "name": "back-hipersorte",
   "version": "1.0.0",
-  "description": "api resultados da loteria",
+  "description": "Backend for Hipersorte",
   "main": "./src/api/server.js",
   "scripts": {
     "start": "node .",
     "dev": "nodemon .",
     "test": "npm run test"
   },
-  "author": "renato alves",
+  "author": "Renato Alves",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "md5": "^2.3.0",
     "mysql2": "2.1.0",
     "nodemon": "^3.0.1",
+    "prisma": "^5.10.2",
     "puppeteer": "^21.4.1",
-    "puppeteer-core": "^15.5.0",
-    "sequelize": "6.3.4"
+    "puppeteer-core": "^15.5.0"
   },
-  "devDependencies": {
-    "sequelize-cli": "6.2.0"
+  "dependencies": {
+    "@prisma/client": "^5.10.2"
   }
 }
