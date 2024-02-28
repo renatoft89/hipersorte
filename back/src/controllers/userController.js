@@ -26,7 +26,7 @@ const updateUsers = async (req, res, next) => {
   const { id } = req.params;
   console.log({ id });
 
-  const result = await updateUser({ name, email, password: hash, role, id });
+  const result = await updateUser({ name, email, password: hash, role, id: parseInt(id)});
   console.log({ teste: id });
   if (!result) {
     return res.status(404).json({ message: 'Usuario não encontrado' });

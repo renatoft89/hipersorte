@@ -54,7 +54,7 @@ const updateUser = async ({ name, email, password, role, id }) => {
         email,
         password,
         role,
-        updatedAt: new Date(),
+        // updatedAt: new Date(),
       },
     });
 

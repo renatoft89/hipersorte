@@ -20,6 +20,7 @@ model Users {
   password  String
   role      String
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   bets      Bet[]    // Add this line
 }
 
