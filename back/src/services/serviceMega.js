@@ -6,12 +6,11 @@ const prisma = new PrismaClient();
 
 const serviceResultMega = async () => {
   try {
-    const resultados = await resultMega();
-    
+    const resultados = await resultMega();    
     const numbersString = JSON.stringify(resultados.mega);
 
     // Atualiza os números das apostas do tipo 'mega'
-    await prisma.bets.updateMany({
+    await prisma.bet.updateMany({
       where: {
         game_type: 'mega'
       },
