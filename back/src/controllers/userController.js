@@ -8,8 +8,6 @@ const createUsers = async (req, res, next) => {
 
   const result = await createUser({ name, email, hash, role });
 
-  // console.log(result);
-
   if (!result) {
     return res.status(409).json({ message: 'Usuario já está cadastrado' });
   }
@@ -19,15 +17,14 @@ const createUsers = async (req, res, next) => {
 
 const updateUsers = async (req, res, next) => {
   const { name, email, password, role } = req.body;
-  console.log(name, email, password, role);
-
+  
   const hash = hashPassword(password);
 
   const { id } = req.params;
-  console.log({ id });
+  
 
   const result = await updateUser({ name, email, password: hash, role, id: parseInt(id)});
-  console.log({ teste: id });
+  
   if (!result) {
     return res.status(404).json({ message: 'Usuario não encontrado' });
   }
