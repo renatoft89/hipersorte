@@ -4,6 +4,8 @@ import Home from './components/Home';
 import MegaSena from './components/jogos/MegaSena';
 import Lotofacil from './components/jogos/Lotofacil';
 import Quina from './components/jogos/Quina';
+import Registration from './components/User/Register';
+import Login from './components/User/Login';
 import './App.css';
 
 function App() {
@@ -19,6 +21,12 @@ function App() {
           </Route>
           <Route path="/quina">
             <Quina />
+          </Route>
+          <Route path="/register">
+            <Registration />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/">
             <Home />

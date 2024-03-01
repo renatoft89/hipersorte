@@ -29,6 +29,10 @@
   display: none; /* Oculta link na página Home */
 }
 
+.login-link {
+  margin-left: 20px;
+}
+
 @media (max-width: 768px) {
   .header-nav {
     flex-direction: column; /* Coloca os links em uma coluna para dispositivos móveis */
