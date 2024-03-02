@@ -1,0 +1,53 @@
+/* login.css */
+
+.form-login {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-login fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form-login legend {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form-login label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form-login input[type='email'],
+.form-login input[type='password'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-login {
+  padding: 10px 20px;
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  
+}

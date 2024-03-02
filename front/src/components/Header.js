@@ -24,11 +24,11 @@ const Header = () => {
             Quina
           </Link>
         </div>
-          <div  className='login-link'>
-            <Link to="/login" className={location.pathname === '/login' ? 'active-link' : 'default-link'}>
-              Login
-            </Link>
-          </div>
+        <div className='login-link'>
+          <Link to="/login" className={location.pathname === '/login' ? 'active-link' : 'default-link'}>
+            Login
+          </Link>
+        </div>
       </nav>
     </header>
   );

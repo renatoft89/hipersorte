@@ -3,13 +3,19 @@
 .header-container {
   background-color: #1e88e5; /* Fundo azul */
   color: white; /* Letras brancas */
-  padding: 10px 0;
+  padding: 28px 20px; /* Adicionei um padding horizontal */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Adicionei isso para alinhar os links e o login */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.main-links {
+  display: flex;
+  align-items: center; /* Centraliza os links verticalmente */
 }
 
 .default-link,
@@ -30,7 +36,8 @@
 }
 
 .login-link {
-  margin-left: 20px;
+  display: flex;
+  align-items: center; /* Centraliza o link de login verticalmente */
 }
 
 @media (max-width: 768px) {
