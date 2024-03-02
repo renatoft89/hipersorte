@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // import { apiRegisterUser } from '../utils/axiosToApi'
+import '../../styles/Register.css';
 
 const Registration = () => {
   const [name, setName] = useState('');
