@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+import Sorte from '../../img/sorte.png';
 
 import '../../styles/Login.css';
+import Header from '../Header';
 // import { setUserLocalStorage } from '../utils/auxLocalStorage';
 // import { apiLoginUser } from '../utils/axiosToApi';
 
@@ -25,8 +27,8 @@ const Login = () => {
   };
 
   const handleLogin = async (event) => {
-    event.preventDefault();
     console.log('login');
+    event.preventDefault();
     const dataLogin = { email, password }
     try {
       // const { data } = await apiLoginUser('/user/auth', dataLogin);
@@ -57,13 +59,22 @@ const Login = () => {
   }
 
   return (
+    <>
+    <Header />
     <form className="form-login">
-      <fieldset>
-        <legend>My Store</legend>
-        <label>
+      <fieldset className="fieldset-login">
+        {/* <legend className="legend-login">Hipersorte</legend> */}
+        <h1 className="login-h1">Hipersorte</h1>
+        <label htmlFor='email'>
+          <img
+            className="logo-sorte"
+            src={Sorte}
+            alt="sorte-logo"
+          />
           Email:
           <input
             type="email"
+            className="input-email"
             value={email}
             name="email"
             onChange={handleChange} />
@@ -71,6 +82,7 @@ const Login = () => {
         <label>
           Senha:
           <input
+            className='input-password'
             type="password"
             value={password}
             name='password'
@@ -84,23 +96,23 @@ const Login = () => {
             className="button-login"
           >Entrar</button>
           <button
+            type="submit"
+            className="button-register"
             onClick={(handleRegistration)}
           >
             Registrar
           </button>
-          {
-            err ?
-              (
-                <span
-                  data-testid="common_register__element-invalid-login"
-                >
-                  {err}
-                </span>
-              ) : ''
-          }
+          {err ?
+            (
+              <span
+                data-testid="common_register__element-invalid-login"
+              >
+                {err}
+              </span>
+            ) : ''}
         </div>
       </fieldset>
-    </form>
+    </form></>
   );
 };
 

@@ -7,7 +7,6 @@ const Home = () => {
     <div className="home-container">
       <Header /> {/* Insira o Header aqui */}
       <h2>Bem-vindo ao Hipersorte!</h2>
-      <p>Selecione uma opção abaixo para gerar números da loteria.</p>
       {/* ... (resto do código) */}
     </div>
   );

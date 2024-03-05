@@ -33,6 +33,6 @@ img {
 }
 
 /* Defina a caixa de modelo para ser o padrão */
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
