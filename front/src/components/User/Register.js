@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-// import { apiRegisterUser } from '../utils/axiosToApi'
+import Header from '../Header.js';
+import { regRegisterUser } from '../../services/requests.js';
+import { useHistory } from "react-router-dom";
 import '../../styles/Register.css';
 
 const Registration = () => {
@@ -8,7 +10,7 @@ const Registration = () => {
   const [password, setPassword] = useState('');
   const [err, setErr] = useState(false);
   
-  // const navigate = useNavigate()
+  const history = useHistory();
 
   const validateInput = () => {
     const MIN_NAME = 12;
@@ -30,18 +32,19 @@ const Registration = () => {
         password,
         role: 'customer'
       }
-      // await apiRegisterUser('/user/new', dataUser);
+      await regRegisterUser('/register/user', dataUser);
       setErr(false)
-      // navigate('/')
+      history.push('/');
 
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
       setErr(error.response.data.message)
     }
   }
 
   return (
     <>
+    <Header />
       <form className="register-form">
         <div className="register-container">
           <h1 className="register-title">Crie sua conta</h1>
