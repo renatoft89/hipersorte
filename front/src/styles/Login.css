@@ -48,6 +48,7 @@
   height: 38px;
   margin-top: 20px;
   width: 277px;
+  cursor: pointer;
 }
 
 .button-login:disabled {
@@ -62,6 +63,7 @@
   height: 38px;
   margin-top: 20px;
   width: 277px;
+  cursor: pointer;
 }
 
 .input-email {
