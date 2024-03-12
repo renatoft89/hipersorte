@@ -1,5 +1,5 @@
 const { createUser, updateUser } = require("../services/userService");
-const hashPassword = require("../utils/hashMd5Password");
+const hashPassword = require("../utils/hashPassword");
 
 const createUsers = async (req, res, next) => {
   const { name, email, password, role } = req.body;
