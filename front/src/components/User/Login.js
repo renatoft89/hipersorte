@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import Sorte from '../../img/sorte.png';
 
 import '../../styles/Login.css';
 import Header from '../Header';
+import { addUserLocal } from '../../services/localStorage';
 // import { setUserLocalStorage } from '../utils/auxLocalStorage';
+import { authUser } from '../../services/requests';
 // import { apiLoginUser } from '../utils/axiosToApi';
 
 const Login = () => {
@@ -27,14 +28,14 @@ const Login = () => {
   };
 
   const handleLogin = async (event) => {
-    console.log('login');
+    
     event.preventDefault();
     const dataLogin = { email, password }
     try {
-      // const { data } = await apiLoginUser('/user/auth', dataLogin);
-  
-      // setUserLocalStorage({ email: data.user.email, token: data.user.token })
-      // navigate("/home");
+      const { user } = await authUser('/login/auth', dataLogin);
+      console.log(user);
+      addUserLocal({ name: user.name, email: user.email, token: user.token, role: user.role})
+      history.push("/");
 
     } catch (error) {
       if (error.code === 'ERR_NETWORK') {

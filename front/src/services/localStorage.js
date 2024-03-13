@@ -1,4 +1,5 @@
-export const addUserLocal = (email, password) => {
-  const user = { email, password };
-  localStorage.setItem('user', JSON.stringify(user));
+export const addUserLocal = (user) => {
+  const { name, email, role, token } = user;
+  console.log(user);
+  localStorage.setItem('USER', JSON.stringify({ name, email, role, token }));
 }

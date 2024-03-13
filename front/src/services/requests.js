@@ -10,4 +10,10 @@ export const regRegisterUser = async (endpoint, body) => {
   return data;
 };
 
+export const authUser = async (endpoint, body) => {
+  const { data } = await api.post(endpoint, body);
+  console.log(data);
+  return data;
+};
+
 export default api;

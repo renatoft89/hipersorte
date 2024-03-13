@@ -12,7 +12,7 @@ const createUser = async ({ name, email, hash, role }) => {
         ],
       },
     });
-
+    
     if (existingUser) {
       return false;
     }
