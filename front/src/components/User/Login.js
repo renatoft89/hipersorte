@@ -22,7 +22,6 @@ const Login = () => {
   };
 
   const handleRegistration = (event) => {
-    console.log('xablau');
     event.preventDefault();
     history.push('/register');
   };
@@ -33,7 +32,6 @@ const Login = () => {
     const dataLogin = { email, password }
     try {
       const { user } = await authUser('/login/auth', dataLogin);
-      console.log(user);
       addUserLocal({ name: user.name, email: user.email, token: user.token, role: user.role})
       history.push("/");
 
@@ -41,9 +39,7 @@ const Login = () => {
       if (error.code === 'ERR_NETWORK') {
         console.log(error);
         setErr(error.message)
-
       } else {
-        console.log(error);
         setErr(error.response.data.message)
       }
     }
