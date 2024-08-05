@@ -1,2 +1,35 @@
 sudo apt update &&             
 sudo apt install -y libgbm-dev chromium-browser gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+
+Para subir um servidor MySQL no Docker com as configurações que você especificou, você pode usar o seguinte comando:
+docker run --name meu-mysql -p 3306:3306 \
+-e MYSQL_ROOT_PASSWORD=senha-mysql \
+-e MYSQL_USER=renatoft89 \
+-e MYSQL_PASSWORD=senha-mysql \
+-d mysql:latest
+
+Para conceder ao usuário "renatoft89" os privilégios de criar, editar e apagar databases no MySQL, você pode utilizar os seguintes comandos:
+
+1. Acessar o MySQL:
+
+Primeiro, você precisa acessar o MySQL como usuário root. Se você estiver usando o container Docker que criamos anteriormente, você pode fazer isso com o seguinte comando:
+
+Bash
+docker exec -it meu-mysql mysql -u root -p
+Use o código com cuidado.
+
+Digite a senha "senha-mysql" quando solicitado.
+
+2. Conceder os privilégios:
+
+Uma vez dentro do MySQL, execute os seguintes comandos:
+
+SQL
+GRANT ALL PRIVILEGES ON *.* TO 'renatoft89'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+
+Execute o seguinte comando para criar uma migração e sincronizar o esquema com o banco de dados:
+
+Bash
+npx prisma migrate dev
