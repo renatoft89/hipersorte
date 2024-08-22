@@ -6,4 +6,4 @@ const megaRouter = express.Router();
 megaRouter.get('/', megaController.getResultMega);
 
 
-module.exports = megaRouter;
+module.exports = megaRouter;hjh
