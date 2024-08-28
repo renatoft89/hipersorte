@@ -9,8 +9,9 @@
 
 .header-nav {
   display: flex;
-  justify-content: space-between; /* Adicionei isso para alinhar os links e o login */
+  justify-content: space-between; /* Alinha links e login */
   align-items: center; /* Centraliza verticalmente */
+  position: relative; /* Necessário para posicionar o menu suspenso */
 }
 
 .main-links {
@@ -28,7 +29,7 @@
 
 .default-link:hover,
 .active-link:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Sombra */
+  background-color: rgba(255, 255, 255, 0.2); /* Efeito de sombra */
 }
 
 .disabled-link {
@@ -38,6 +39,56 @@
 .login-link {
   display: flex;
   align-items: center; /* Centraliza o link de login verticalmente */
+  position: relative; /* Necessário para posicionar o menu suspenso */
+}
+
+.user-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.user-button i {
+  margin-right: 8px; /* Espaço entre o ícone e o texto */
+}
+
+.user-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Efeito de sombra no hover */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown-item:hover {
+  background: #f0f0f0;
 }
 
 @media (max-width: 768px) {

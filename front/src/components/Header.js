@@ -1,11 +1,22 @@
 // src/components/Header.js
 
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Importar FontAwesome
 import '../styles/Header.css';
 
 const Header = () => {
+  const history = useHistory();
   const location = useLocation();
+  const token = localStorage.getItem('USER');
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const userName = token ? JSON.parse(localStorage.getItem('USER'))?.name : null;
+
+  const handleLogout = () => {
+    localStorage.removeItem('USER');
+    history.push('/login');
+  };
 
   return (
     <header className="header-container">
@@ -25,9 +36,26 @@ const Header = () => {
           </Link>
         </div>
         <div className='login-link'>
-          <Link to="/login" className={location.pathname === '/login' ? 'active-link' : 'default-link'}>
-            Login
-          </Link>
+          {token ? (
+            <div className='user-menu'>
+              <button
+                className='user-button'
+                onClick={() => setDropdownOpen(!isDropdownOpen)}
+              >
+                <i className="fas fa-user"></i> {/* Ícone de usuário */}
+                {`Olá, ${userName}`}
+              </button>
+              {isDropdownOpen && (
+                <div className='dropdown-menu'>
+                  <button onClick={handleLogout} className='dropdown-item'>Logout</button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link to="/login" className={location.pathname === '/login' ? 'active-link' : 'default-link'}>
+              Login
+            </Link>
+          )}
         </div>
       </nav>
     </header>
