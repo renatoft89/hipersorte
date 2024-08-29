@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import Sorte from '../../img/sorte.png';
 
 import '../../styles/Login.css';
-import Header from '../Header';
+// import Header from '../Header';
 import { addUserLocal } from '../../services/localStorage';
 // import { setUserLocalStorage } from '../utils/auxLocalStorage';
 import { authUser } from '../../services/requests';
@@ -57,7 +57,6 @@ const Login = () => {
 
   return (
     <>
-    <Header />
     <form className="form-login">
       <fieldset className="fieldset-login">
         {/* <legend className="legend-login">Hipersorte</legend> */}
@@ -75,8 +74,6 @@ const Login = () => {
             value={email}
             name="email"
             onChange={handleChange} />
-        </label>
-        <label>
           Senha:
           <input
             className='input-password'

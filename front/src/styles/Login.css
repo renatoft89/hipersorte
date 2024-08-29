@@ -17,7 +17,7 @@
   max-height: 600px;
   max-width: 270px;
   padding: 5%;
-  margin-top: 3%;
+  margin-top: 8%;
   margin-bottom: 5%;
 }
 
@@ -86,17 +86,13 @@
 
 /* Estilos para telas menores */
 @media screen and (max-width: 1080px) {
-  .fieldset-login {
+  /* .fieldset-login {
     max-width: 100%;
     margin: 5% 10%;
     padding: 5%;
-  }
+  } */
 
-  .button-login,
-  .button-register {
-    width: calc(100% - 20px); /* Subtrai 20px para considerar o padding */
-    margin-top: 20px;
-  }
+  /*  */
 
   .input-email,
   .input-password {
