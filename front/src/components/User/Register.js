@@ -25,6 +25,7 @@ const Registration = () => {
   }
 
   const handleSaveuser = async (e) => {
+    console.log('entrou')
     try {
       const dataUser = {
         name,
