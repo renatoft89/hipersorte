@@ -5,7 +5,7 @@ const { compare } = require("bcryptjs");
 const { sign } = require("jsonwebtoken");
 
 const authService = async (email, password) => {
-  const error = { erro: 'Invalid email or password' }
+  const error = { erro: 'E-mail ou senha incorretos.' }
 
   const user = await prisma.users.findUnique({ where: { email }}); 
   
