@@ -25,7 +25,6 @@ const Registration = () => {
   }
 
   const handleSaveuser = async (e) => {
-    console.log('entrou')
     try {
       const dataUser = {
         name,
@@ -33,6 +32,8 @@ const Registration = () => {
         password,
         role: 'customer'
       }
+    
+      
       await regRegisterUser('/register/user', dataUser);
       setErr(false)
       history.push('/');

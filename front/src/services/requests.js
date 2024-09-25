@@ -5,6 +5,8 @@ export const api = axios.create({
 });
 
 export const regRegisterUser = async (endpoint, body) => {
+  console.log(endpoint, body);
+  
   const { data } = await api.post(endpoint, body);
   
   return data;

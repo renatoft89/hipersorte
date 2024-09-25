@@ -99,7 +99,7 @@ const Login = () => {
           {err ?
             (
               <span
-                data-testid="common_register__element-invalid-login"
+                className="error-login"
               >
                 {err}
               </span>

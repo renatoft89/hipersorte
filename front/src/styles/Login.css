@@ -84,6 +84,21 @@
   width: 250px;
 }
 
+.error-login {
+  color: #d9534f; /* Vermelho claro para o texto de erro */
+  background-color: #f2dede; /* Fundo vermelho suave */
+  border: 1px solid #d9534f; /* Borda do mesmo tom do texto */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  margin-top: 10px; /* Espaçamento acima */
+  font-size: 14px; /* Tamanho da fonte */
+  display: flex; /* Usar flexbox para centralizar texto se necessário */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  width: 254px;
+  height: 20px;
+}
+
 /* Estilos para telas menores */
 @media screen and (max-width: 1080px) {
   /* .fieldset-login {
