@@ -7,3 +7,5 @@
 DATABASE_URL="mysql://root:12345678@localhost:3306/loto_results"
 
 PORT=3001
+
+docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=senha-mysql -e MYSQL_DATABASE=meubanco -e MYSQL_USER=renatoft89 -e MYSQL_PASSWORD=renato123 -p 3306:3306 -d mysql:latest
