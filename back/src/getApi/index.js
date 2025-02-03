@@ -79,7 +79,7 @@ const getResultsLotofacil = async () => {
 
     const page = await browser.newPage();
     console.log('Navegando para a página dos resultados...');
-    await page.goto('https://loterias.caixa.gov.br/Paginas/default.aspx');
+    await page.goto('https://loterias.caixa.gov.br/Paginas/Lotofacil.aspx');
 
     console.log('Aguardando o carregamento dos elementos...');
     await page.waitForSelector('div.product', { timeout: 10000 });
@@ -94,28 +94,27 @@ const getResultsLotofacil = async () => {
       };
 
       // Função para capturar o número do concurso
-      const getConcurso = (selector) => {
-        const element = document.querySelectorAll(selector)[1]
+      const getConcurso = () => {
+        const element = document.querySelector('span.ng-binding');
         if (element) {
           const texto = element.innerText.trim();
-          
           const match = texto.match(/Concurso\s(\d+)/i);
           return match && match[1] ? match[1] : 'Desconhecido';
         }
         return 'Desconhecido';
       };
 
-      // Função para capturar o valor estimado
-      const getValorEstimado = (selector) => {
-        const element = document.querySelector(selector);
+      // Função para capturar o valor estimado do próximo prêmio
+      const getValorEstimado = () => {
+        const element = document.querySelector('div.next-prize p.value.ng-binding');
         return element ? element.innerText.trim() : 'Desconhecido';
       };
 
       // Lotofacil
       results.lotofacil = {
         numeros: getNumbers('ul.simple-container.lista-dezenas.lotofacil li.ng-binding.dezena.ng-scope'),
-        concurso: getConcurso('div.product.no-title p.description.ng-binding'),
-        valorEstimado: getValorEstimado('h3.valor-estimado.valor-estimado-lotofacil.ng-binding'),
+        concurso: getConcurso(),
+        valorEstimado: getValorEstimado(),
       };
 
       return results.lotofacil; // Retorna apenas os resultados da Lotofacil
