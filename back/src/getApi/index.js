@@ -11,36 +11,19 @@ const getResultsMega = async () => {
     });
 
     const page = await browser.newPage();
-<<<<<<< HEAD
-    await page.goto('https://loterias.caixa.gov.br/Paginas/default.aspx', { waitUntil: 'networkidle2' });
-
-    await page.waitForSelector('ul.resultado-loteria.mega-sena li');
-    await page.waitForSelector('ul.simple-container.lista-dezenas.lotofacil li.ng-binding.dezena.ng-scope');
-    await page.waitForSelector('ul.simple-container.lista-dezenas.quina li.ng-binding.dezena.ng-scope');
-=======
     console.log('Navegando para a página dos resultados...');
     await page.goto('https://loterias.caixa.gov.br/Paginas/default.aspx');
->>>>>>> 1192c47 (feat: add getMega getLoto)
 
     console.log('Aguardando o carregamento dos elementos...');
     await page.waitForSelector('div.product', { timeout: 10000 });
 
     const lotoResults = await page.evaluate(() => {
-<<<<<<< HEAD
-      const getNumbers = (selector) => Array.from(document.querySelectorAll(selector)).map(li => li.innerText);
-
-      return {
-        mega: getNumbers('ul.resultado-loteria.mega-sena li'),
-        lotofacil: getNumbers('ul.simple-container.lista-dezenas.lotofacil li.ng-binding.dezena.ng-scope'),
-        quina: getNumbers('ul.simple-container.lista-dezenas.quina li.ng-binding.dezena.ng-scope'),
-=======
       const results = {};
 
       // Função para capturar os números de um jogo
       const getNumbers = (selector) => {
         const elements = document.querySelectorAll(selector);
         return Array.from(elements).map(el => el.innerText.trim());
->>>>>>> 1192c47 (feat: add getMega getLoto)
       };
 
       // Função para capturar o número do concurso
@@ -84,9 +67,6 @@ const getResultsMega = async () => {
   }
 };
 
-<<<<<<< HEAD
-module.exports = resultMega;
-=======
 // Função para pegar os resultados da Lotofacil
 const getResultsLotofacil = async () => {
   let browser;
@@ -115,7 +95,7 @@ const getResultsLotofacil = async () => {
 
       // Função para capturar o número do concurso
       const getConcurso = (selector) => {
-        const element = document.querySelectorAll(selector)[1];
+        const element = document.querySelectorAll(selector)[1]
         if (element) {
           const texto = element.innerText.trim();
           
@@ -167,4 +147,3 @@ const getResultsLoteria = async (lotteryType) => {
 };
 
 module.exports = { getResultsLoteria };
->>>>>>> 1192c47 (feat: add getMega getLoto)
