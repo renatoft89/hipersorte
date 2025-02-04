@@ -1,4 +1,6 @@
 require('dotenv').config();
+require('../services/scraperScheduler'); // Importa e ativa o agendador
+
 const app = require('./api');
 
 const PORT = process.env.PORT;
