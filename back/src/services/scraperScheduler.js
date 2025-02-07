@@ -2,8 +2,9 @@ const cron = require('node-cron');
 const { serviceResultLoteria } = require('./serviceLoteria'); // Importa a função de serviço
 
 // Agendar execução nos dias específicos (segunda, quarta e sexta às 10h)
-cron.schedule('12 21 * * 1,2,5', async () => {
+cron.schedule('00 21 * * 1,2,5', async () => {
   console.log('Executando scraping das loterias...');
+  console.log('Horário:', new Date().toLocaleString('pt-BR', { hour12: false }));
 
   try {
     // Executa para Lotofácil
@@ -15,6 +16,11 @@ cron.schedule('12 21 * * 1,2,5', async () => {
     console.log('Buscando resultados da Mega-Sena...');
     const megaResults = await serviceResultLoteria('mega');
     console.log('Mega-Sena processada:', megaResults);
+
+    // Executa para Quina
+    console.log('Buscando resultados da Quina...');
+    const quinaResults = await serviceResultLoteria('quina');
+    console.log('Quina processada:', quinaResults);
 
   } catch (error) {
     console.error('Erro ao executar o scraping das loterias:', error);

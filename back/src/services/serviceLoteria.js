@@ -1,15 +1,15 @@
-const {getResultsLoteria} = require('../getApi/index'); 
+const { getResultsLoteria } = require('../getApi/index');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const serviceResultLoteria = async (tipoLoteria) => {
+const serviceResultLoteria = async (typeLottery) => {
   try {
-    if (!['mega', 'lotofacil'].includes(tipoLoteria)) {
+    if (!['mega', 'lotofacil', 'quina'].includes(typeLottery)) {
       throw new Error('Tipo de loteria inválido. Use "mega" ou "lotofacil".');
     }
 
-    const resultados = await getResultsLoteria(tipoLoteria);
-     
+    const resultados = await getResultsLoteria(typeLottery);
+
     // Formata os números para incluir o concurso na posição zero
     const formattedNumbers = [resultados.concurso, ...resultados.numeros];
 
@@ -19,7 +19,7 @@ const serviceResultLoteria = async (tipoLoteria) => {
     // Verifica se já existem registros do tipo especificado
     const existingBets = await prisma.bet.findMany({
       where: {
-        game_type: tipoLoteria
+        game_type: typeLottery
       }
     });
 
@@ -27,7 +27,7 @@ const serviceResultLoteria = async (tipoLoteria) => {
       // Se não houver registros, insere novos dados
       await prisma.bet.create({
         data: {
-          game_type: tipoLoteria,
+          game_type: typeLottery,
           numbers: numbersString,
           user_id: 1 // Ajuste conforme necessário
         }
@@ -36,7 +36,7 @@ const serviceResultLoteria = async (tipoLoteria) => {
       // Se houver registros, atualiza os números
       await prisma.bet.updateMany({
         where: {
-          game_type: tipoLoteria
+          game_type: typeLottery
         },
         data: {
           numbers: numbersString
@@ -45,7 +45,7 @@ const serviceResultLoteria = async (tipoLoteria) => {
     }
 
     return resultados;
-  
+
   } catch (error) {
     console.error(`Erro ao salvar os resultados da ${tipoLoteria}:`, error);
     throw new Error('Erro interno do servidor');
